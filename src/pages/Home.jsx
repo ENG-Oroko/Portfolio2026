@@ -6,12 +6,24 @@ import Footer from "../components/Footer.jsx";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0f172a] text-white">
+    <>
       <Navbar />
-      <Hero />
-      <Skills />
-      <Projects />
-      <Footer />
-    </div>
+
+      <section id="home">
+        <Hero />
+      </section>
+
+      <section id="skills">
+        <Skills />
+      </section>
+
+      <section id="projects">
+        <Projects />
+      </section>
+
+      <section id="contact">
+        <Footer />
+      </section>
+    </>
   );
 }

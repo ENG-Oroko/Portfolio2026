@@ -1,20 +1,23 @@
 const projects = [
   {
-    title: "POS Management System",
-    description:
-      "Modern POS system with analytics dashboard.",
+    title: "SMS Privacy App",
+    description: "Send and receive SMS messages with a clean interface.",
   },
-
   {
-    title: "Flutter Mobile App",
-    description:
-      "Cross-platform app with Firebase integration.",
+    title: "Expense Budgeting App",
+    description: "Track spending and manage your budget easily.",
   },
-
   {
-    title: "Portfolio Website",
-    description:
-      "Responsive personal portfolio website.",
+    title: "FlipIQ",
+    description: "AI flashcards for smarter learning and memory retention.",
+  },
+  {
+    title: "KCA Timetable App",
+    description: "Simple visual timetable for students.",
+  },
+  {
+    title: "Delivery System",
+    description: "Real-time package tracking and dispatch system.",
   },
 ];
 
@@ -22,28 +25,42 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen px-8 py-20 flex flex-col justify-center"
+      className="min-h-screen px-8 py-20 bg-white"
     >
-      <h2 className="text-4xl font-bold text-center text-cyan-400 mb-12">
-        Projects
-      </h2>
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
+      {/* Header */}
+      <div className="max-w-5xl mx-auto text-center mb-12">
+        <h2 className="text-4xl font-bold text-cyan-500 mb-3">
+          Projects
+        </h2>
+
+        <p className="text-gray-600">
+          A collection of apps I’ve built using modern technologies.
+        </p>
+      </div>
+
+      {/* Grid */}
+      <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+
+        {projects.map((project, i) => (
           <div
-            key={index}
-            className="bg-[#111827] p-6 rounded-2xl border border-gray-800"
+            key={i}
+            className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition"
           >
-            <h3 className="text-xl font-semibold mb-4">
+
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">
               {project.title}
             </h3>
 
-            <p className="text-gray-400">
+            <p className="text-gray-600 text-sm leading-6">
               {project.description}
             </p>
+
           </div>
         ))}
+
       </div>
+
     </section>
   );
 }
