@@ -4,65 +4,51 @@ import linkedinIcon from "../assets/linkedin.png";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-800 py-6 text-center text-gray-500 bg-[#0f172a]">
+    <footer className="border-t border-gray-200 py-4 text-center text-gray-600 bg-white">
 
       {/* Icons */}
-      <div className="flex justify-center gap-5 mb-3">
+      <div className="flex justify-center gap-4 mb-2">
 
-        {/* GitHub */}
         <a
           href="https://github.com/ENG-Oroko"
           target="_blank"
           rel="noopener noreferrer"
-          className="group transition transform hover:scale-110 duration-200"
+          aria-label="GitHub"
+          className="hover:opacity-80 transition"
         >
-          <img
-            src={githubIcon}
-            alt="GitHub"
-            className="w-6 h-6 opacity-80 group-hover:opacity-100 transition group-hover:drop-shadow-[0_0_6px_#00ffff]"
-          />
+          <img src={githubIcon} alt="GitHub" className="w-5 h-5" />
         </a>
 
-        {/* YouTube */}
         <a
           href="https://youtube.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="group transition transform hover:scale-110 duration-200"
+          aria-label="YouTube"
+          className="hover:opacity-80 transition"
         >
-          <img
-            src={youtubeIcon}
-            alt="YouTube"
-            className="w-6 h-6 opacity-80 group-hover:opacity-100 transition group-hover:drop-shadow-[0_0_6px_red]"
-          />
+          <img src={youtubeIcon} alt="YouTube" className="w-5 h-5" />
         </a>
 
-        {/* LinkedIn */}
         <a
           href="https://linkedin.com/in/"
           target="_blank"
           rel="noopener noreferrer"
-          className="group transition transform hover:scale-110 duration-200"
+          aria-label="LinkedIn"
+          className="hover:opacity-80 transition"
         >
-          <img
-            src={linkedinIcon}
-            alt="LinkedIn"
-            className="w-6 h-6 opacity-80 group-hover:opacity-100 transition group-hover:drop-shadow-[0_0_6px_blue]"
-          />
+          <img src={linkedinIcon} alt="LinkedIn" className="w-5 h-5" />
         </a>
 
       </div>
 
-      {/* Thin line */}
-      <div className="w-16 h-[1px] bg-cyan-500 mx-auto mb-3 opacity-40"></div>
-
       {/* Text */}
-      <p className="text-xs">
+      <p className="text-[11px]">
         © 2026{" "}
-        <span className="text-cyan-400 font-medium">
+        <span className="text-cyan-500 font-medium">
           Douglas Oroko
         </span>
       </p>
+
     </footer>
   );
 }
