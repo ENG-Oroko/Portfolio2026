@@ -17,7 +17,7 @@ export default function Navbar() {
         
         {/* Logo */}
         <h1 className="text-2xl font-extrabold text-black tracking-wide cursor-pointer hover:scale-105 transition duration-300">
-          <></>
+          Oroko Douglas
         </h1>
 
         {/* Desktop Menu */}

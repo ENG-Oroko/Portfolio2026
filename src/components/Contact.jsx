@@ -16,7 +16,7 @@ export default function Contact() {
     try {
       await emailjs.sendForm(
         "service_1g3insi",
-        "template_1k480mg",
+        "template_fm32h6u",
         formRef.current,
         "fDdOb68X-Cw52sZMy"
       );
@@ -24,12 +24,12 @@ export default function Contact() {
       setStatus("Message sent successfully!");
       formRef.current.reset();
     } catch (error) {
-      console.log("EmailJS Error:", error);
+      console.log("FAILED...", error);
 
       setStatus(
         error?.text
           ? error.text
-          : "Failed to send message. Check EmailJS configuration."
+          : "Failed to send message. Please try again."
       );
     }
 
@@ -39,58 +39,76 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen bg-white px-4 py-16 flex items-center justify-center"
+      className="min-h-screen bg-white px-4 py-20 flex items-center justify-center"
     >
       <div className="w-full max-w-6xl grid md:grid-cols-2 gap-10">
 
-        {/* FORM */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+        {/* CONTACT FORM */}
+        <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-lg">
 
           <h2 className="text-3xl font-bold text-cyan-600 mb-2">
-            Get in touch
+            Get In Touch
           </h2>
 
           <p className="text-gray-500 text-sm mb-6">
-            Send a message and I’ll respond as soon as possible.
+            Send me a message and I’ll get back to you soon.
           </p>
 
           <form ref={formRef} onSubmit={sendEmail} className="space-y-4">
 
             {/* NAME */}
-            <input
-              type="text"
-              name="user_name"
-              placeholder="Your Name"
-              required
-              className="w-full p-3 border border-gray-300 rounded-lg text-gray-900 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 outline-none"
-            />
+            <div>
+              <label className="block text-sm text-gray-600 mb-2">
+                Name
+              </label>
+
+              <input
+                type="text"
+                name="user_name"
+                placeholder="Your Name"
+                required
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none"
+              />
+            </div>
 
             {/* EMAIL */}
-            <input
-              type="email"
-              name="user_email"
-              placeholder="Your Email"
-              required
-              className="w-full p-3 border border-gray-300 rounded-lg text-gray-900 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 outline-none"
-            />
+            <div>
+              <label className="block text-sm text-gray-600 mb-2">
+                Email
+              </label>
+
+              <input
+                type="email"
+                name="user_email"
+                placeholder="Your Email"
+                required
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none"
+              />
+            </div>
 
             {/* MESSAGE */}
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              rows="5"
-              required
-              className="w-full p-3 border border-gray-300 rounded-lg text-gray-900 resize-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 outline-none"
-            />
+            <div>
+              <label className="block text-sm text-gray-600 mb-2">
+                Message
+              </label>
+
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Write your message..."
+                required
+                className="w-full p-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 resize-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none"
+              />
+            </div>
 
             {/* BUTTON */}
             <button
               type="submit"
               disabled={loading}
-              className={`w-full py-3 rounded-lg font-semibold text-white transition ${
+              className={`w-full py-3 rounded-lg font-semibold transition ${
                 loading
-                  ? "bg-cyan-400 cursor-not-allowed"
-                  : "bg-cyan-600 hover:bg-cyan-700"
+                  ? "bg-cyan-300 cursor-not-allowed"
+                  : "bg-cyan-500 hover:bg-cyan-600 text-white"
               }`}
             >
               {loading ? "Sending..." : "Send Message"}
@@ -98,7 +116,7 @@ export default function Contact() {
 
             {/* STATUS */}
             {status && (
-              <p className="text-center text-sm text-gray-600 mt-2">
+              <p className="text-center text-sm text-gray-600 mt-3">
                 {status}
               </p>
             )}
@@ -106,27 +124,33 @@ export default function Contact() {
           </form>
         </div>
 
-        {/* INFO */}
+        {/* CONTACT INFO */}
         <div className="flex flex-col justify-center space-y-5">
 
-          <p className="text-gray-600 text-sm">
-            Reach out to me through any of the channels below for a quick response.
-          </p>
+          <div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Contact Information
+            </h2>
+
+            <p className="text-gray-500">
+              Feel free to reach out through any platform below.
+            </p>
+          </div>
 
           {/* EMAIL */}
           <a
             href="mailto:orokodouglas7@hotmail.com"
-            className="bg-white border border-gray-200 p-4 rounded-xl hover:border-cyan-500 transition"
+            className="bg-white border border-gray-200 p-5 rounded-xl hover:border-cyan-400 transition shadow-sm"
           >
-            <h3 className="text-gray-500 text-xs">Email</h3>
+            <h3 className="text-gray-500 text-sm">Email</h3>
             <p className="text-gray-900 font-medium">
               orokodouglas7@hotmail.com
             </p>
           </a>
 
           {/* LOCATION */}
-          <div className="bg-white border border-gray-200 p-4 rounded-xl">
-            <h3 className="text-gray-500 text-xs">Location</h3>
+          <div className="bg-white border border-gray-200 p-5 rounded-xl shadow-sm">
+            <h3 className="text-gray-500 text-sm">Location</h3>
             <p className="text-gray-900 font-medium">
               Nairobi, Kenya
             </p>
@@ -137,12 +161,10 @@ export default function Contact() {
             href="https://github.com/ENG-Oroko"
             target="_blank"
             rel="noreferrer"
-            className="bg-white border border-gray-200 p-4 rounded-xl hover:border-cyan-500 transition"
+            className="bg-white border border-gray-200 p-5 rounded-xl hover:border-cyan-400 transition shadow-sm"
           >
-            <h3 className="text-gray-500 text-xs">GitHub</h3>
-            <p className="text-gray-900 font-medium">
-              ENG-Oroko
-            </p>
+            <h3 className="text-gray-500 text-sm">GitHub</h3>
+            <p className="text-gray-900 font-medium">ENG-Oroko</p>
           </a>
 
           {/* WHATSAPP */}
@@ -150,9 +172,9 @@ export default function Contact() {
             href="https://wa.me/254716926957"
             target="_blank"
             rel="noreferrer"
-            className="bg-white border border-gray-200 p-4 rounded-xl hover:border-green-500 transition"
+            className="bg-white border border-gray-200 p-5 rounded-xl hover:border-green-500 transition shadow-sm"
           >
-            <h3 className="text-gray-500 text-xs">WhatsApp</h3>
+            <h3 className="text-gray-500 text-sm">WhatsApp</h3>
             <p className="text-gray-900 font-medium">
               Chat on WhatsApp
             </p>
