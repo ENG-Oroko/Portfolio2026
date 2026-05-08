@@ -23,10 +23,14 @@ export default function Contact() {
 
       setStatus("Message sent successfully!");
       formRef.current.reset();
-
     } catch (error) {
       console.log("EmailJS Error:", error);
-      setStatus(error?.text || "Failed to send message.");
+
+      setStatus(
+        error?.text
+          ? error.text
+          : "Failed to send message. Check EmailJS configuration."
+      );
     }
 
     setLoading(false);
@@ -47,45 +51,36 @@ export default function Contact() {
           </h2>
 
           <p className="text-gray-500 text-sm mb-6">
-            Send your details and I’ll respond as soon as possible.
+            Send a message and I’ll respond as soon as possible.
           </p>
 
           <form ref={formRef} onSubmit={sendEmail} className="space-y-4">
 
-            {/* CONTACT NAME */}
+            {/* NAME */}
             <input
               type="text"
-              name="contact_name"
-              placeholder="Contact Name"
+              name="user_name"
+              placeholder="Your Name"
               required
-              className="w-full p-3 border rounded-lg text-gray-900"
+              className="w-full p-3 border border-gray-300 rounded-lg text-gray-900 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 outline-none"
             />
 
-            {/* CONTACT EMAIL */}
+            {/* EMAIL */}
             <input
               type="email"
-              name="contact_email"
-              placeholder="Contact Email"
+              name="user_email"
+              placeholder="Your Email"
               required
-              className="w-full p-3 border rounded-lg text-gray-900"
+              className="w-full p-3 border border-gray-300 rounded-lg text-gray-900 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 outline-none"
             />
 
-            {/* CONTACT ADDRESS */}
-            <input
-              type="text"
-              name="contact_address"
-              placeholder="Contact Address"
+            {/* MESSAGE */}
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              rows="5"
               required
-              className="w-full p-3 border rounded-lg text-gray-900"
-            />
-
-            {/* CONTACT PHONE */}
-            <input
-              type="tel"
-              name="contact_phone"
-              placeholder="Contact Phone"
-              required
-              className="w-full p-3 border rounded-lg text-gray-900"
+              className="w-full p-3 border border-gray-300 rounded-lg text-gray-900 resize-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 outline-none"
             />
 
             {/* BUTTON */}
@@ -115,27 +110,52 @@ export default function Contact() {
         <div className="flex flex-col justify-center space-y-5">
 
           <p className="text-gray-600 text-sm">
-            Reach out through any channel for a quick response.
+            Reach out to me through any of the channels below for a quick response.
           </p>
 
-          <div className="bg-white border p-4 rounded-xl">
-            Location: Nairobi, Kenya
-          </div>
-
+          {/* EMAIL */}
           <a
             href="mailto:orokodouglas7@hotmail.com"
-            className="bg-white border p-4 rounded-xl"
+            className="bg-white border border-gray-200 p-4 rounded-xl hover:border-cyan-500 transition"
           >
-            Email: orokodouglas7@hotmail.com
+            <h3 className="text-gray-500 text-xs">Email</h3>
+            <p className="text-gray-900 font-medium">
+              orokodouglas7@hotmail.com
+            </p>
           </a>
 
+          {/* LOCATION */}
+          <div className="bg-white border border-gray-200 p-4 rounded-xl">
+            <h3 className="text-gray-500 text-xs">Location</h3>
+            <p className="text-gray-900 font-medium">
+              Nairobi, Kenya
+            </p>
+          </div>
+
+          {/* GITHUB */}
+          <a
+            href="https://github.com/ENG-Oroko"
+            target="_blank"
+            rel="noreferrer"
+            className="bg-white border border-gray-200 p-4 rounded-xl hover:border-cyan-500 transition"
+          >
+            <h3 className="text-gray-500 text-xs">GitHub</h3>
+            <p className="text-gray-900 font-medium">
+              ENG-Oroko
+            </p>
+          </a>
+
+          {/* WHATSAPP */}
           <a
             href="https://wa.me/254716926957"
             target="_blank"
             rel="noreferrer"
-            className="bg-white border p-4 rounded-xl"
+            className="bg-white border border-gray-200 p-4 rounded-xl hover:border-green-500 transition"
           >
-            WhatsApp: Chat Now
+            <h3 className="text-gray-500 text-xs">WhatsApp</h3>
+            <p className="text-gray-900 font-medium">
+              Chat on WhatsApp
+            </p>
           </a>
 
         </div>
