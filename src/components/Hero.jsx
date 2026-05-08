@@ -76,11 +76,7 @@ export default function Hero() {
         {/* Text */}
         <div className="text-center md:text-left">
 
-          {/* Role typing */}
-          <p className="text-blue-600 text-sm tracking-[0.3em] uppercase mb-4 font-semibold h-6">
-            {text}
-            <span className="animate-pulse text-black">|</span>
-          </p>
+         
 
           {/* Heading */}
           <h1 className="text-5xl md:text-7xl font-extrabold mb-6 text-gray-900 leading-tight">
@@ -89,6 +85,12 @@ export default function Hero() {
               Douglas Oroko
             </span>
           </h1>
+
+           {/* Role typing */}
+          <p className="text-blue-600 text-sm tracking-[0.3em] uppercase mb-4 font-semibold h-6">
+            {text}
+            <span className="animate-pulse text-black">|</span>
+          </p>
 
           {/* Description */}
           <p className="text-gray-600 max-w-2xl mb-8 leading-8 text-lg">
